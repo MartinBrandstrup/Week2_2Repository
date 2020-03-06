@@ -1,3 +1,5 @@
+// Code along in class tuesday
+
 //Hvad er et objekt?
 console.log('Hvad er et objekt?\n')
 

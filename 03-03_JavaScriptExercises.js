@@ -1,3 +1,5 @@
+// Tuesday Assignment
+
 //Assignment 1
 console.log('Assignment 1')
 
@@ -16,9 +18,6 @@ console.log(
     nameArray.map(s => s.split("").reverse().join("")))
 
 //Split makes String into Array of chars
-
-
-
 
 
 
@@ -60,9 +59,6 @@ console.log(
 
 
 
-
-
-
 //Assignment 3
 console.log('\nAssignment 3')
 
@@ -99,9 +95,6 @@ console.log(
 
 
 
-
-
-
 //Assignment 4a
 console.log('\nAssignment 4a')
 
@@ -110,17 +103,14 @@ const numbers = [1, 3, 5, 10, 11]
 
 console.log(
     numbers.map((n, i) => {
-    if (i <= 1) {           //1,3
-        return (n + 1) * 2
-    } else if (i == 2) {    //5
-        return n * 3
-    } else if (i == 3) {    //10
-        return n * 2 + 1
-    } else return n         //11
-}))
-
-
-
+        if (i <= 1) {           //1,3
+            return (n + 1) * 2
+        } else if (i == 2) {    //5
+            return n * 3
+        } else if (i == 3) {    //10
+            return n * 2 + 1
+        } else return n         //11
+    }))
 
 
 
@@ -131,10 +121,13 @@ console.log('\nAssignment 4b')
 
 const names = ['Lars', 'Peter', 'Jan', 'Bo']
 
-console.log(
-    '<nav>\n'+ names.map(n => '<a href="">' +n + '</a>\n' ).join("") + '</nav>')
+function createNavSet() {
+    return '<nav>\n' + names.map(n => '<a href="">' + n + '</a>\n').join("") + '</nav>'
+}
 
+console.log(createNavSet())
 
+document.getElementById('4d_b').innerHTML = createNavSet()
 
 
 
@@ -143,9 +136,29 @@ console.log(
 //Assignment 4c
 console.log('\nAssignment 4c')
 
-let namesAndPhones = [
-    {name: "Lars",  phone:"1234567"}, 
-    {name: "Peter", phone: "675843"}, 
-    {name: "Jan",   phone: "98547"}, 
-    {name: "Bo",    phone: "79345"}
+const namesAndPhones = [
+    { name: "Lars", phone: "1234567" },
+    { name: "Peter", phone: "675843" },
+    { name: "Jan", phone: "98547" },
+    { name: "Bo", phone: "79345" }
 ];
+
+function createTable() {
+
+    let table = namesAndPhones.map(p => {
+        '<tr><td>' + p.name + '</td><td>' + p.phone + '</td></tr>'
+    }).join('')
+
+    // For some reason I am unable to extract the attribute from the namesAndPhones array.
+    // Not sure what I am doing wrong...
+    console.log(table)
+
+    let tableWithHeaders = '<table><tr><th>Name</th><th>Phone</th></tr>' + table + '</table>'
+    console.log(tableWithHeaders)
+
+    return tableWithHeaders
+}
+
+console.log(createTable())
+
+document.getElementById('4d_c').innerHTML = createTable()
