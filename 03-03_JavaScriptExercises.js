@@ -143,22 +143,36 @@ const namesAndPhones = [
     { name: "Bo", phone: "79345" }
 ];
 
-function createTable() {
+function createTable(data) {
 
-    let table = namesAndPhones.map(p => {
-        '<tr><td>' + p.name + '</td><td>' + p.phone + '</td></tr>'
+    let table = data.map(p => {
+        return '<tr><td>' + p.name + '</td><td>' + p.phone + '</td></tr>'
     }).join('')
-
-    // For some reason I am unable to extract the attribute from the namesAndPhones array.
-    // Not sure what I am doing wrong...
-    console.log(table)
-
     let tableWithHeaders = '<table><tr><th>Name</th><th>Phone</th></tr>' + table + '</table>'
-    console.log(tableWithHeaders)
-
     return tableWithHeaders
 }
 
-console.log(createTable())
+document.getElementById('4d_c').innerHTML = createTable(namesAndPhones)
 
-document.getElementById('4d_c').innerHTML = createTable()
+
+
+
+
+//Assignment 4e
+console.log('\nAssignment 4e')
+
+const filterButton = document.getElementById('4d_e1')
+const removeFilterButton = document.getElementById('4d_e2')
+
+filterButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    createTable(namesAndPhones.aFilter)
+})
+
+removeFilterButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    createTable(namesAndPhones)
+})
+
+// Not sure how to do this assignment. Tried with this, but it doesn't work.
+// I don't have time to experiment or research the correct solution.
